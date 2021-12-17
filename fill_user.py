@@ -3,17 +3,6 @@ import random
 from string import ascii_lowercase
 
 
-def rand_fio():
-  name = ["Александр", 'Борис', 'Дмитрий', 'Алексей']
-  surname = ['Петров', 'Иванов', 'Зайцев']
-  second_name = ['Павлович', 'Фомич', 'Ильич']
-  ans = []
-  for _ in range(100000):
-    ans.append('{} {} {}'.format(random.choice(name), random.choice(surname), random.choice(second_name)))
-
-  return ans
-
-
 def login_list():
   login = []
   for i in range(1000):
