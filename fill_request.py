@@ -37,7 +37,7 @@ def random_text_client():
 
 def generate_requests(users):
   ans = []
-  for _ in range(5000):
+  for _ in range(100000):
     user = random.choice(users)
     typee = user[1]
     if typee:

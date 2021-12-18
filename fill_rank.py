@@ -3,30 +3,35 @@ import random
 
 
 def choose(game, type):
-  if game == 151 and type:
+  if game == 317 and type:
     return random.randint(6000, 10000)
-  if game == 151 and not type:
+  if game == 317 and not type:
     return random.randint(1, 5000)
-  if game == 152 and type:
+  if game == 318 and type:
     return random.choice(['master', 'grandmaster'])
-  if game == 152 and not type:
+  if game == 318 and not type:
     return random.choice(['bronze', 'silver', 'gold', 'platinum', 'diamond'])
-  if game == 153 and type:
+  if game == 319 and type:
     return random.choice(['master', 'grandmaster', 'challenger'])
-  if game == 153 and not type:
+  if game == 319 and not type:
     return random.choice(['iron', 'bronze', 'silver', 'gold', 'platinum', 'diamond'])
+  if type:
+    return random.choice([random.choice(['master', 'grandmaster']), random.randint(6000, 10000)])
+  return random.choice([random.choice(['bronze', 'silver', 'gold', 'platinum', 'diamond']), random.randint(1, 5000)])
 
 def choose_rank(games, users):
   ans = []
   for user in users:
     count = random.randint(1, 100)
-    if count <= 50:
+    if count <= 35:
       count = 1
-    elif count <= 85:
+    elif count <= 70:
       count = 2
-    else:
+    if count <= 85:
       count = 3
-    gamepool = [games[i][0] for i in range(3)]
+    else:
+      count = 4
+    gamepool = [games[i][0] for i in range(len(games))]
     for _ in range(count):
       game = gamepool.pop(random.randint(0, len(gamepool) - 1))
       ans.append((user[0], game, choose(game, user[1])))

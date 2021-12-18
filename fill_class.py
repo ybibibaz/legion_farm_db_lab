@@ -35,7 +35,7 @@ def check_time(classes):
 
 def generate_class(requests, cur):
     ans = []
-    for _ in range(2000):
+    for _ in range(20000):
         request = requests.pop(random.randrange(len(requests)))
         cur.execute(
             'SELECT game FROM user_ LEFT OUTER JOIN rank ON user_id = user_ WHERE user_id = %s', (request[0], )
